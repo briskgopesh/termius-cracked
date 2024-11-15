@@ -1,29 +1,29 @@
 # Termius-cracked
 
-## 破解方法
+## Cracking Method
 
-安装npm 安装asar
+Install npm Install asar
 ```shell
 npm install -g asar
 ```
 ### for Windows
 
-大同小异，看下面Mac的破解方法
+Similar but different, see the Mac cracking method below.
 
 
-### for MAC
+### For MAC
 
-1. 解包app.asar
+1. Unpack app.asar
 ```shell
 cd /Applications/Termius.app/Contents/Resources/
-asar extract app.asar ./app  # 修改完不需要重新打包
-mv app.asar app.asar.bak  # 留个备份，或者直接rm
-rm app-update.yml  # 防止自动更新
-
+asar extract app.asar ./app  # No need to repack after modification
+mv app.asar app.asar.bak  # Keep a backup, or use rm directly
+rm app-update.yml  # Prevent automatic updates
 ```
-2. 修改app/js/background-process.js
 
-搜索`await this.api.bulkAccount`
+2. Modify app/js/background-process.js
+
+Search for `await this.api.bulkAccount`
 
 `const e=await this.api.bulkAccount();` -> `var e=await this.api.bulkAccount();`
 
@@ -74,4 +74,4 @@ e.access_objects=[{
 }]
 return .......
 ```
-3. 启动Termius，登录账号，重启Termius
+3. Start Termius, log in to your account, restart Termius
